@@ -184,8 +184,14 @@ echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 systemctl restart ssh
 
 # set the default editor
-sudo sh -c 'echo "export EDITOR=vim" >> /etc/bash.bashrc'
+echo "export EDITOR=vim" >> /etc/bash.bashrc
 export EDITOR=vim
+
+# set the prompt schema
+echo 'export PS1="\[\e[01;32m\]\u@\h\[\e[0m\]:\[\e[01;34m\]\w\[\e[00m\]\$ "' >> /etc/bash.bashrc
+
+# set grep coloring
+echo 'alias grep="grep --color=auto"' >> /etc/bash.bashrc
 
 # install necessary softwares
 apt install -y make less gcc git
