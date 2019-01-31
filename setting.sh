@@ -209,7 +209,7 @@ useradd -G sudo -s /bin/bash -p $(encpasswd "$user_pw" "$salt")  $new_user
 mkdir /home/$new_user/.ssh
 cat > /home/$new_user/.ssh/config <<EOF
 Host gcvdi
-	Hostnkanatatsuame desktop.main.gc
+	HostName desktop.main.gc
 	User kanatatsu
 	GSSAPIAuthentication yes
 EOF
