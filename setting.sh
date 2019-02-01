@@ -204,6 +204,7 @@ cd
 rm -rf /tmp/encpasswd
 mkdir /home/$new_user
 useradd -G sudo -s /bin/bash -p $(encpasswd "$user_pw" "$salt")  $new_user
+chown $new_user.$new_user /home/$new_user
 
 # configure ssh setting
 mkdir /home/$new_user/.ssh
