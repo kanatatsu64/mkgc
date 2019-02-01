@@ -29,6 +29,8 @@ kadm_fqdn='krb-master.main.gc'
 
 krb_admin_pw='yotuba822#admin'
 
+install_libs='make less gcc git tree'
+
 # the user to login with Kerberos authentication over SSH.
 new_user='kanatatsu'
 user_pw='yotuba822'
@@ -194,7 +196,7 @@ echo 'export PS1="\[\e[01;32m\]\u@\h\[\e[0m\]:\[\e[01;34m\]\w\[\e[00m\]\$ "' >> 
 echo 'alias grep="grep --color=auto"' >> /etc/bash.bashrc
 
 # install necessary softwares
-apt install -y make less gcc git
+apt install -y $install_libs
 
 # add user kanatatsu
 git clone https://github.com/kanatatsu64/encpasswd.git /tmp/encpasswd
