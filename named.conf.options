@@ -1,0 +1,25 @@
+options {
+        directory "/var/cache/bind";
+        // If there is a firewall between you and nameservers you want
+        // to talk to, you may need to fix the firewall to allow multiple
+        // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+        //========================================================================
+        // If BIND logs error messages about the root key being expired,
+        // you will need to update your keys.  See https://www.isc.org/bind-keys
+        //========================================================================
+        dnssec-validation auto;
+        forwarders {
+                8.8.8.8;
+        };
+        allow-query { trusted; }; # prevent DNS reflection attack
+        allow-transfer { none; };
+        allow-update { none; };
+        empty-zones-enable  yes;  # prevent dns-re-binding attack
+        auth-nxdomain no;    # conform to RFC1035
+        #listen-on { eth1; };
+        #listen-on-v6 { eth1; };
+        #allow-query-on { eth1; }; # specify from which interface a query is accepted
+        // For full-function resolver
+        recursion yes;
+        #allow-recursion-on { eth1; }; # specify from which interface a recursion request is accepted
+};
