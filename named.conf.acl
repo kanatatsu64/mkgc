@@ -1,0 +1,32 @@
+acl gc_vpc {
+        172.16.0.0/20;
+        10.146.0.0/20;
+};
+acl local_vpn {
+        10.8.0.2;
+};
+acl trusted {
+        localhost;
+        gc_vpc;
+        local_vpn;
+};
+acl eth1 {
+        172.16.0.2;
+};
+acl gc_mem {
+        localhost;
+        local_vpn;
+};
+acl main_gc_mem {
+        localhost;
+        gc_vpc;
+        local_vpn;
+};
+acl test_gc_mem {
+        localhost;
+        gc_vpc;
+};
+acl vpn_mem {
+        localhost;
+        local_vpn;
+};
