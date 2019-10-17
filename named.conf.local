@@ -1,0 +1,34 @@
+//
+// Do any local configuration here
+//
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+include "/etc/bind/zones.rfc1918.mod";
+zone "gc." {
+        type master;
+        notify no;
+        file "/etc/bind/db.gc";
+        allow-query { trusted; };
+        allow-update { gc_mem; };
+};
+zone "main.gc." {
+        type master;
+        notify no;
+        file "/etc/bind/db.main_gc";
+        allow-query { trusted; };
+        allow-update { main_gc_mem; };
+};
+zone "test.gc." {
+        type master;
+        notify no;
+        file "/etc/bind/db.test_gc";
+        allow-query { trusted; };
+        allow-update { test_gc_mem; };
+};
+zone "vpn.gc." {
+        type master;
+        notify no;
+        file "/etc/bind/db.vpn_gc";
+        allow-query { trusted; };
+        allow-update { vpn_mem; };
+};
