@@ -1,0 +1,26 @@
+$ORIGIN .
+$TTL 604800     ; 1 week
+main.gc                 IN SOA  ns.main.gc. root.gc. (
+                                109        ; serial
+                                604800     ; refresh (1 week)
+                                86400      ; retry (1 day)
+                                2419200    ; expire (4 weeks)
+                                604800     ; minimum (1 week)
+                                )
+                        NS      ns.main.gc.
+$ORIGIN _tcp.main.gc.
+_kerberos               SRV     0 5 88 krb-master.main.gc.
+_kerberos-adm           SRV     0 5 749 krb-master.main.gc.
+_ldap                   SRV     0 5 389 ldap-master.main.gc.
+_ldaps                  SRV     0 5 636 ldap-master.main.gc.
+$ORIGIN main.gc.
+desktop                 A       172.16.0.2
+$TTL 86400      ; 1 day
+go                      A       172.16.15.210
+$TTL 604800     ; 1 week
+krb-master              A       172.16.0.2
+ldap-master             A       172.16.0.2
+ns                      A       172.16.0.2
+$TTL 86400      ; 1 day
+refrector               A       172.16.15.209
+ruby                    A       172.16.15.208
