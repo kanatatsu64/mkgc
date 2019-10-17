@@ -1,0 +1,13 @@
+$TTL    604800
+@       IN      SOA     ns root.gc. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns
+ns      IN      A       172.16.0.2
+vpn-master      IN      A       172.16.0.2
+mac     IN      A       10.8.0.2
+_openvpn._tcp   IN      SRV     0 5 1194        vpn-master
