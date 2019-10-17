@@ -1,0 +1,17 @@
+$TTL    604800
+@       IN      SOA     ns root.gc. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns
+ns      IN      A       172.16.0.2
+ldap-master     IN      A       172.16.0.2
+kerberos-master IN      A       172.16.0.2
+; See https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=vpn
+; for service types available.
+_ldap._tcp      IN      SRV     0 5 389         ldap-master
+_ldaps._tcp     IN      SRV     0 5 636         ldap-master
+_kerberos._tcp  IN      SRV     0 5 88          kerberos-master
