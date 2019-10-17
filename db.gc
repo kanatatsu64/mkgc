@@ -1,0 +1,13 @@
+$TTL    604800
+@       IN      SOA     ns root.gc. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns
+main    IN      NS      ns
+test    IN      NS      ns
+vpn     IN      NS      ns
+ns      IN      A       172.16.0.2
